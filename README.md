@@ -30,7 +30,6 @@ Why this model: {insert sentence about logistic regression being decent here} Lo
 
 What the company can responsibly conclude: Early-tenure customers tend to be greater churn risks.
 
-What the company should not conclude yet:
+What the company should not conclude yet: The company should not conclude that this is an accurate or effective predictive model since even the logistic regression model, which we believe to be the best option, missed over 40% of actual churners. 
 
-One next analysis we would run: 
-
+One next analysis we would run: We would run a feature selection analysis like using VIF scores or Lasso regularization to figure out which of tenure, MonthlyCharges, and TotalCharges contributes the most unique predictive signal. Using this information, we would refit each model and compare whether measures like recall improve.
