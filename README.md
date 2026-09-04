@@ -28,7 +28,7 @@ Recommended model: Logistic Regression
 
 Why this model: {insert sentence about logistic regression being decent here} Logistic Regression is a better fit than GAM for churn predictions here because the GAM model requires an especially large sample size for spline fittings, so learning from a limited minority class is challenging. Additionally, high concurvity between the continuous features weakens the model when the advantage of GAM is supposed to be in modeling these features. 
 
-What the company can responsibly conclude:
+What the company can responsibly conclude: Early-tenure customers tend to be greater churn risks.
 
 What the company should not conclude yet:
 
