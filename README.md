@@ -20,17 +20,17 @@ The Telco Customer Churn dataset contains data on 7,032 customers, including dem
 |---|---|---|---|
 | Linear regression | The model produced an MSE of 0.146 and an R^2 value of 0.252, indicating a weak fit (the model only explains about 25.2% of the variance in churn). | Linear regressions are directly interpretable due to the fact that a one-unit increase in a numeric feature (or the presence of a categorical feature) corresponds to an exact, constant change in the predicted value, whereas logistic regression coefficients represent changes in log-odds and must be exponentiated into odds ratios before they have a clear, interpretable meaning. | Linear regression assumes a continuous target variable, but Churn is binary, which made this a mismatched model approach from the start. In addition, the correlation heatmap showed high correlation coefficients between tenure, MonthlyCharges, and TotalCharges, revealing  signs of multicollinearity. This means that individual coefficients for these features might not accurately reflect each feature's actual individual effect on churn. |
 | Logistic regression | Accuracy = 80.5%; Precision = 65.0%; Recall = 57.2%; F1 = 60.9%; ROC-AUC = 0.836. A confusion matrix was also added to examine classification errors. | Logistic regression is inherently interpretable because each feature has a directly inspectable coefficient. Coefficients can also be converted to odds ratios, if chosen, to describe how predictors are associated with the odds of churn while holding other included variables constant. This file is on a Python file. | The model identified only 57.2% of actual churners, meaning approximately 43% were missed. It also provided an 80% accuracy, but is not substantial considering the nonchurn group was 73%. Correlated predictors can also make individual coefficient explanations less reliable. |
-| GAM |  |  |  |
+| GAM | Accuracy = 79.4%; Churn Precision = 0.65; Churn Recall = 0.49; Churn F1 = 0.56; ROC-AUC = 0.837. Confusion matrix shows most retained customers were flagged but 50.8% of churned customers were misclassified. | The partial dependence curves for each feature provide a detailed insight into how features were used and what trends each show individually (ex. increased tenure for long tenured customers reduces churn risk much less than increased tenure for newer customers). | The concurvity between tenure, monthly charges, and total charges results in meaningless attribution to each feature. Because they are related, the model can't definitively distinguish between the contributions of each feature, so it displays a potential dependency split but there are other dependency combinations of the three that would produce the same results.  |
 
 ## Recommendation
 
-Recommended model:
+Recommended model: Logistic Regression
 
-Why this model:
+Why this model: {insert sentence about logistic regression being decent here} Logistic Regression is a better fit than GAM for churn predictions here because the GAM model requires an especially large sample size for spline fittings, so learning from a limited minority class is challenging. Additionally, high concurvity between the continuous features weakens the model when the advantage of GAM is supposed to be in modeling these features. 
 
 What the company can responsibly conclude:
 
 What the company should not conclude yet:
 
-One next analysis we would run:
+One next analysis we would run: 
 
